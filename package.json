@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build:client": "NODE_ENV=production webpack --config ./tools/webpack/production.ts",
+    "dev": "yarn start:dev",
     "prepare": "husky install",
     "start:client": "webpack serve --config ./tools/webpack/development.ts",
     "start:dev": "concurrently --names \"EXPRESS,WEBPACK\" \"NODE_PORT=3001 yarn start:server\" \"yarn start:client\"",
