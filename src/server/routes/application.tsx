@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+import { renderToString } from 'react-dom/server';
 import { Request, Response } from 'express';
 import { StaticRouter } from 'react-router-dom';
 import React from 'react';
@@ -9,13 +10,18 @@ async function applicationRouteHandler(req: Request, res: Response) {
   try {
     const context = {};
 
-    const body = (
+    const body = renderToString(
       <StaticRouter location={req.url} context={context}>
         <App />
-      </StaticRouter>
+      </StaticRouter>,
     );
 
-    return res.send(body);
+    const helmet = Helmet.renderStatic();
+
+    return res.render('index', {
+      body,
+      helmet,
+    });
   } catch {
     return res.status(500);
   }
