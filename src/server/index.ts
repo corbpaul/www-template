@@ -1,8 +1,11 @@
 import compression from 'compression';
 import dotenvSafe from 'dotenv-safe';
 import express from 'express';
+import hbs from 'hbs';
 
+import { applicationRouteHandler } from './routes/application';
 import { expressLogger, expressErrorLogger } from './middleware/logger';
+import { resolveAsset, resolveAssetParams } from './views/helpers/resolveAsset';
 
 const PORT = process.env.NODE_PORT || 3000;
 const staticAssetPath = 'static'; // url where static assets are served from
@@ -20,11 +23,20 @@ app.use(compression());
 // logging
 app.use(expressLogger);
 
+// templating
+app.set('view engine', 'hbs');
+app.set('views', `${__dirname}/views`);
+hbs.registerHelper('resolveAsset', (filename: resolveAssetParams['filename']) =>
+  resolveAsset({
+    filename,
+  }),
+);
+
 // static assets
 app.use(`/${staticAssetPath}`, express.static(staticAssetOutputPath));
 
 // routes
-app.get('*', (_, res) => res.send('Hello'));
+app.get('*', applicationRouteHandler);
 
 // error logging (needs to come after router)
 app.use(expressErrorLogger);
