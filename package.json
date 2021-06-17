@@ -6,11 +6,13 @@
   "author": "Paul Corbett <3407807+corbpaul@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "test:lint": "eslint .",
+    "prepare": "husky install",
     "test:lint:fix": "eslint . --fix",
-    "test:static": "yarn test:lint",
-    "test": "yarn test:static",
-    "prepare": "husky install"
+    "test:lint": "eslint .",
+    "test:static": "yarn test:lint && yarn test:types",
+    "test:types:coverage": "typescript-coverage-report",
+    "test:types": "type-coverage",
+    "test": "yarn test:static"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.27.0",
@@ -23,9 +25,18 @@
     "husky": ">=6",
     "lint-staged": ">=10",
     "prettier": "2.3.1",
-    "typescript": "4.3.3"
+    "type-coverage": "2.17.5",
+    "typescript": "4.3.3",
+    "typescript-coverage-report": "0.6.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "yarn test:lint:fix"
+  },
+  "typeCoverage": {
+    "atLeast": 80,
+    "ignoreFiles": [
+      "cypress/**/*",
+      "tests/**/*"
+    ]
   }
 }
