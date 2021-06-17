@@ -3,6 +3,7 @@ import dotenvSafe from 'dotenv-safe';
 import express from 'express';
 import hbs from 'hbs';
 
+import { apolloGraphqlServer } from './graphql';
 import { applicationRouteHandler } from './routes/application';
 import { expressLogger, expressErrorLogger } from './middleware/logger';
 import { resolveAsset, resolveAssetParams } from './views/helpers/resolveAsset';
@@ -22,6 +23,9 @@ app.use(compression());
 
 // logging
 app.use(expressLogger);
+
+// GraphQL
+apolloGraphqlServer(app);
 
 // templating
 app.set('view engine', 'hbs');
