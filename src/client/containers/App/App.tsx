@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import React from 'react';
 
 function Home() {
-  return <div>Home</div>;
+  return <div>Home Page</div>;
 }
 
 function App() {
