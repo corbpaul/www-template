@@ -52,13 +52,12 @@ jobs:
           app-name: $HEROKU_PRODUCTION_APP_NAME
 
 workflows:
-  build-test:
+  build-deploy:
     jobs:
       - build-test
-
-  stage-prod-deploy:
-    jobs:
       - stage:
+          requires:
+            - build-test
           filters:
             branches:
               only: master
