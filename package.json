@@ -12,6 +12,7 @@
     "dev": "yarn start:dev",
     "postbuild": "copyup -e \"./src/**/*.{ts,tsx}\" \"./src/**/*\" \"dist\" && copyfiles \"./public/**/*\" \"dist\"",
     "prepare": "husky install",
+    "prestart": "yarn build",
     "start:client": "webpack serve --config ./tools/webpack/development.ts",
     "start:dev": "concurrently --names \"EXPRESS,WEBPACK\" \"NODE_PORT=3001 yarn start:server\" \"yarn start:client\"",
     "start:server": "NODE_ENV=development nodemon -r tsconfig-paths/register src/server/index.ts",
