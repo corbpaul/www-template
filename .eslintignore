@@ -5,4 +5,5 @@ coverage-ts
 coverage-jest
 
 # build
+dist
 public
