@@ -8,7 +8,7 @@ import { applicationRouteHandler } from './routes/application';
 import { expressLogger, expressErrorLogger } from './middleware/logger';
 import { resolveAsset, resolveAssetParams } from './views/helpers/resolveAsset';
 
-const PORT = process.env.NODE_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const staticAssetPath = 'static'; // url where static assets are served from
 const staticAssetOutputPath = 'public'; // dir where static assets are built
 
