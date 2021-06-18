@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.5.1
+  heroku: circleci/heroku@0.0.10.
 
 jobs:
   build-test:
@@ -17,6 +17,7 @@ jobs:
     executor: heroku/default
     steps:
       - checkout
+      - heroku/install
       - heroku/deploy-via-git:
           app-name: $HEROKU_STAGING_APP_NAME
 
@@ -45,6 +46,7 @@ jobs:
     executor: heroku/default
     steps:
       - checkout
+      - heroku/install
       - heroku/deploy-via-git:
           app-name: $HEROKU_PRODUCTION_APP_NAME
 
@@ -56,7 +58,7 @@ workflows:
   stage-prod-deploy:
     jobs:
       - stage
-        filters:
+          filters:
             branches:
               only: master
       - test:
