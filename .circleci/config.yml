@@ -1,7 +1,8 @@
 version: 2.1
 
 orbs:
-  heroku: circleci/heroku@0.0.10.
+  heroku: circleci/heroku@0.0.10
+  node: circleci/node@4.5.1
 
 jobs:
   build-test:
@@ -57,7 +58,7 @@ workflows:
 
   stage-prod-deploy:
     jobs:
-      - stage
+      - stage:
           filters:
             branches:
               only: master
