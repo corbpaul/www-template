@@ -31,6 +31,43 @@ jobs:
           name: Run tests
           command: yarn test
 
+  stage:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          app-name: $HEROKU_STAGING_APP_NAME
+
+  test:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:14.17.1
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Run tests
+          command: yarn test
+
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          app-name: $HEROKU_PRODUCTION_APP_NAME
+
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
@@ -41,3 +78,16 @@ workflows:
       - build-and-test
       # For running simple node tests, you could optionally use the node/test job from the orb to replicate and replace the job above in fewer lines.
       # - node/test
+
+  stage_test_deploy:
+    jobs:
+      - stage
+      - test:
+          requires:
+            - stage
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
