@@ -61,7 +61,7 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.24.0",
     "husky": "6.0.0",
-    "jest": "27.0.4",
+    "jest": "27.0.5",
     "jest-axe": "5.0.1",
     "jest-transform-graphql": "2.1.0",
     "lint-staged": "11.0.0",
