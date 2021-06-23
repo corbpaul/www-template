@@ -1146,7 +1146,7 @@
     camel-case "4.1.2"
     tslib "~2.2.0"
 
-"@graphql-tools/wrap@^7.0.0":
+"@graphql-tools/wrap@^7.0.1":
   version "7.0.8"
   resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-7.0.8.tgz#ad41e487135ca3ea1ae0ea04bb3f596177fb4f50"
   integrity sha512-1NDUymworsOlb53Qfh7fonDi2STvqCtbeE68ntKY9K/Ju/be2ZNxrFSbrBHwnxWcN9PjISNnLcAyJ1L5tCUyhg==
@@ -4852,13 +4852,13 @@ graphql-import-node@0.0.4:
   resolved "https://registry.yarnpkg.com/graphql-import-node/-/graphql-import-node-0.0.4.tgz#0522f058978c7e1b99d1e6be1b851ee17007b111"
   integrity sha512-okpdABQIgIM0qdx9Mfgdu6fTsFEazZmHZdEU34cijkUj9D1db1SyPRGHPxbXmbacamhEF41ckxpCAgHiGliryQ==
 
-graphql-modules@1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/graphql-modules/-/graphql-modules-1.4.2.tgz#18b1102a1e9b305bd330098330d3408663ef66d2"
-  integrity sha512-sw0jPou+DGv2BscbkTcd2VjfXNq45ALIFVEfgjKVhpMPraUDgddqG3RxQdGC16SbNJgpGovLKQd96zft6pVuaA==
+graphql-modules@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/graphql-modules/-/graphql-modules-1.4.3.tgz#279b9388e2dc68cc07c73fa2207bc6ac2a94d97a"
+  integrity sha512-ArkkqJvrhIsXHZVs89vkjjmHFDRjt3Y1zfayJLt73qSdOG/VNfTt5bEkXcvJ5P1hP+ywj6ODzJqFq8HbJcBHKQ==
   dependencies:
     "@graphql-tools/schema" "^7.0.0"
-    "@graphql-tools/wrap" "^7.0.0"
+    "@graphql-tools/wrap" "^7.0.1"
     "@graphql-typed-document-node/core" "^3.1.0"
     ramda "^0.27.1"
 
