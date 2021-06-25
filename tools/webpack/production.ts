@@ -18,7 +18,7 @@ const config: webpack.Configuration = merge(common, {
   output: {
     path: path.join(process.cwd(), `/${outputDirectory}`),
     filename: '[name].[chunkhash].js',
-    publicPath: '/',
+    publicPath: '',
   },
 
   optimization: {
