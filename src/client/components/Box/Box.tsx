@@ -8,13 +8,13 @@ const BoxRoot = styled.div`
 `;
 
 interface BoxProps {
+  as?: ElementType;
   children: ReactNode;
-  component?: ElementType;
 }
 
 const Box = forwardRef<HTMLDivElement, BoxProps>(
-  ({ component = 'div', ...other }, ref) => {
-    return <BoxRoot as={component} ref={ref} {...other} />;
+  ({ as = 'div', ...other }, ref) => {
+    return <BoxRoot as={as} ref={ref} {...other} />;
   },
 );
 
