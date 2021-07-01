@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { renderToStringWithData } from '@apollo/client/react/ssr';
 import { Request, Response } from 'express';
 import { SchemaLink } from '@apollo/client/link/schema';
-import { ServerStyleSheet } from 'styled-components';
 import { StaticRouter } from 'react-router-dom';
 import React from 'react';
 import Serialize from 'serialize-javascript';
@@ -12,8 +11,6 @@ import { App } from '../../client/containers/App';
 import { schema } from '../graphql';
 
 async function applicationRouteHandler(req: Request, res: Response) {
-  const sheet = new ServerStyleSheet();
-
   try {
     const apolloClient = new ApolloClient({
       cache: new InMemoryCache(),
@@ -38,27 +35,21 @@ async function applicationRouteHandler(req: Request, res: Response) {
       </ApolloProvider>
     );
 
-    return await renderToStringWithData(sheet.collectStyles(body)).then(
-      (content) => {
-        const helmet = Helmet.renderStatic();
-        const styleTags = sheet.getStyleTags();
+    return await renderToStringWithData(body).then((content) => {
+      const helmet = Helmet.renderStatic();
 
-        const apolloState = Serialize(apolloClient.cache.extract(), {
-          isJSON: true,
-        });
+      const apolloState = Serialize(apolloClient.cache.extract(), {
+        isJSON: true,
+      });
 
-        return res.render('index', {
-          apolloState,
-          body: content,
-          helmet,
-          styleTags,
-        });
-      },
-    );
+      return res.render('index', {
+        apolloState,
+        body: content,
+        helmet,
+      });
+    });
   } catch {
     return res.status(500);
-  } finally {
-    sheet.seal();
   }
 }
 
