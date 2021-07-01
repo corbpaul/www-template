@@ -1,16 +1,6 @@
 declare namespace App {
+  // Theming
   type ThemeEnum = 'base';
-
-  interface Theme {
-    colors: {
-      primary: string;
-    };
-    fonts: {
-      body: string;
-      heading?: string;
-      monospace?: string;
-    };
-  }
-
+  type Theme = import('theme-ui').Theme;
   type Themes = Record<ThemeEnum, Theme>;
 }
