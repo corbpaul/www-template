@@ -2371,10 +2371,10 @@
     "@types/webpack" "^4"
     http-proxy-middleware "^1.0.0"
 
-"@types/webpack-manifest-plugin@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@types/webpack-manifest-plugin/-/webpack-manifest-plugin-3.0.4.tgz#152c9f72b239e1077f92110433c35b86085968ed"
-  integrity sha512-L6UHoIfmL81kRFm3lzaijh2ROQj8o5b9YlTq0pGN4AgwV6ZrowF5KfKPFgGyJ2NTdjksAwc22gZ0rI4V+I5WRg==
+"@types/webpack-manifest-plugin@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@types/webpack-manifest-plugin/-/webpack-manifest-plugin-3.0.5.tgz#8689ad893f2db38be78666fdb3e1fe0fa52df9c4"
+  integrity sha512-p6uyaflgqXaWH0Y7lczikaRuzrk+h2JfV7Fy86WrhYI2r2UNGyetFwPBKl1r5RnnhEpB/P6VaJJNzMaMSwe3oA==
   dependencies:
     "@types/tapable" "^1"
     "@types/webpack" "^4"
