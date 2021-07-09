@@ -22,8 +22,6 @@ const config: webpack.Configuration = merge(common, {
   },
 
   optimization: {
-    concatenateModules: true,
-    runtimeChunk: 'single',
     minimizer: [
       new TerserPlugin({
         parallel: true,
