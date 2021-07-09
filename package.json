@@ -46,6 +46,7 @@
     "winston": "3.3.3"
   },
   "devDependencies": {
+    "@apollo/react-testing": "4.0.0",
     "@babel/core": "7.14.6",
     "@babel/preset-env": "7.14.7",
     "@babel/preset-react": "7.14.5",
