@@ -2,7 +2,7 @@
   "ignoreDeps": [
     "@types/node",
     "circleci/node",
-    "node",
+    "node"
   ],
   "masterIssue": true,
   "prConcurrentLimit": 2,
