@@ -1,15 +1,15 @@
-<html lang='en' {{htmlAttributes}}>
+<html lang="en" {{htmlAttributes}}>
 
   <head>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {{{helmet.title}}}
     {{{helmet.meta}}}
     {{{helmet.link}}}
   </head>
 
   <body>
-    <div id='root'>{{{body}}}</div>
+    <div id="root"></div>
     <script>window.__APOLLO_STATE__ = {{{apolloState}}}</script>
     <script src='{{resolveAsset 'vendor.js'}}'></script>
     <script src='{{resolveAsset 'bundle.js'}}'></script>

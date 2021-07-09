@@ -1,0 +1,3 @@
+- Remove two lines from webpack production config
+- Add testing-library utils
+- tsc --outDir will cause issues when calling test files

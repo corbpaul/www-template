@@ -3,9 +3,11 @@ import { createApplication } from 'graphql-modules';
 import { Express } from 'express';
 
 import { rootModule } from './modules/root';
+import { sectionsModule } from './modules/sections';
+import { screensModule } from './modules/screens';
 
 const application = createApplication({
-  modules: [rootModule],
+  modules: [rootModule, sectionsModule, screensModule],
 });
 
 const schema = application.createSchemaForApollo();

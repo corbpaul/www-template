@@ -1,0 +1,57 @@
+extend type Query {
+  screens: [ScreenContainer]
+}
+
+type ScreenContainer {
+  id: String
+
+  # Properties such as how to launch this screen (popup, sheet, etc.)
+  # screenProperties: ScreenProperties
+
+  layout: LayoutsPerFormFactor
+}
+
+# Specifies the ILayout type depending on rotation, client screen density, etc.
+type LayoutsPerFormFactor {
+  # Compact is usually used for portrait breakpoints (i.e. mobile phones)
+  compact: ILayout
+
+  # Wide is usually used for landscape breakpoints (i.e. web browsers, tablets)
+  wide: ILayout
+}
+
+interface ILayout {
+  type: String!
+}
+
+type SectionDetail {
+  # References a SectionContainer in the GPResponse.sections array
+  sectionId: String
+
+  # Styling data
+  topPadding: Int
+  bottomPadding: Int
+
+  # ... Other styling data (margins, borders, etc)
+}
+
+# A placement meat to display a single GP section
+type SingleSectionPlacement {
+  sectionDetail: SectionDetail!
+}
+
+# A placement meat to display multiple GP sections in the order they appear in the sectionDetails array
+type MultipleSectionsPlacement {
+  sectionDetails: [SectionDetail]!
+}
+
+# A layout implementation defines the placements that sections are inserted into.
+type SingleColumnLayout implements ILayout {
+  type: String!
+
+  nav: SingleSectionPlacement
+
+  main: MultipleSectionsPlacement
+
+  floatingFooter: SingleSectionPlacement
+}

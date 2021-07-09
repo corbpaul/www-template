@@ -1,0 +1,20 @@
+type TitleSection {
+  type: String!
+  title: String!
+}
+
+union Section = TitleSection
+
+enum SectionComponentType {
+  TITLE,
+}
+
+type SectionContainer {
+  id: String!
+  sectionComponentType: SectionComponentType
+  section: Section
+}
+
+extend type Query {
+  sections: [SectionContainer]
+}
