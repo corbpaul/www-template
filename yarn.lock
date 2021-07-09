@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@apollo/client@3.3.21":
+"@apollo/client@3.3.21", "@apollo/client@latest":
   version "3.3.21"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.21.tgz#2862baa4e1ced8c5e89ebe6fc52877fc64a726aa"
   integrity sha512-RAmZReFuKCKx0Rs5C0nVJwKomAHUHn+gGP/YvbEsXQWu0sXoncEUZa71UqlfCPVXa/0MkYOIbCXSQdOcuRrHgw==
@@ -39,6 +39,13 @@
     "@types/long" "^4.0.0"
     "@types/node" "^10.1.0"
     long "^4.0.0"
+
+"@apollo/react-testing@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@apollo/react-testing/-/react-testing-4.0.0.tgz#9fd1991584510c2ac051d986547ceccbc9c0a30a"
+  integrity sha512-P7Z/flUHpRRZYc3FkIqxZH9XD3FuP2Sgks1IXqGq2Zb7qI0aaTfVeRsLYmZNUcFOh2pTHxs0NXgPnH1VfYOpig==
+  dependencies:
+    "@apollo/client" latest
 
 "@apollographql/apollo-tools@^0.5.0":
   version "0.5.1"
