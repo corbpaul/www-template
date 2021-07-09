@@ -1,4 +1,27 @@
 {
-  "extends": ["config:base"],
-  "ignoreDeps": ["node", "circleci/node", "@types/node"]
+  "ignoreDeps": [
+    "@types/node",
+    "circleci/node",
+    "node",
+  ],
+  "masterIssue": true,
+  "prConcurrentLimit": 2,
+  "rangeStrategy": "replace",
+  "timezone": "Australia/Sydney",
+  "packageRules": [
+    {
+      "groupName": "dev, build & server dependencies",
+      "separateMultipleMajor": true,
+      "depTypeList": ["devDependencies"],
+      "excludePackageNames": [],
+      "schedule": ["before 5am every weekday"]
+    },
+    {
+      "groupName": "all",
+      "separateMultipleMajor": true,
+      "depTypeList": ["dependencies"],
+      "excludePackageNames": [],
+      "schedule": ["before 3am on Monday"]
+    }
+  ]
 }
