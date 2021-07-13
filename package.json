@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build:client": "NODE_ENV=production webpack --config ./tools/webpack/production.ts",
-    "build:server": "rimraf ./dist && tsc",
+    "build:server": "rimraf ./dist && tsc --rootDir ./src",
     "build": "yarn build:server && yarn build:client",
     "dev": "yarn start:dev",
     "postbuild": "copyup -e \"./src/**/*.{ts,tsx}\" \"./src/**/*\" \"dist\" && copyfiles \"./public/**/*\" \"dist\"",
